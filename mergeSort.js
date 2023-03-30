@@ -1,33 +1,33 @@
-function mergeSort(){
-    if (arr.length < 1){
+function mergeSort(arr){
+    if (arr.length <= 1){
     return arr;
     }
-    mid = math.floor(arr.length/2);
+    mid = Math.floor(arr.length/2);
 
-    const left = arr.slice(0, mid);
-    const right = arr.slice(mid);
+    var left = arr.slice(0, mid);
+    var right = arr.slice(mid);
 
     // Recursion with mergesort()
 
-    sortedRight = mergeSort(left)
-    sortedLeft = mergeSort(right)
+    var sortedRight = mergeSort(left);
+    var sortedLeft = mergeSort(right);
 
-    return merge(sortedLeft, sortedRight)
-}
-
-function merge(left, right){
-    const res = []
-    while(left.length && right.length){
-        if (left[0] <= right[0]){
-            res.push(left.shift())
+    const res = [];
+    while(sortedLeft.length && sortedRight.length){
+        if (sortedLeft[0] <= sortedRight[0]){
+            res.push(sortedLeft.shift());
         }
         else{
-            res.push(right.shift())
+            res.push(sortedRight.shift());
         }
         
     }
-    return res.concat(left, right)
+    return res.concat(sortedLeft, sortedRight);
 }
+
+
+const arr = [9, 3, 5, 1, 4, 8, 0]
+console.log(mergeSort(arr))
 
 
 
