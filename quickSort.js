@@ -5,27 +5,26 @@ function qkSort(arr){
     }
 
     
-    const pI = arr[arr.length-1];
+    const pivot = arr[arr.length-1];
     var left = [];
     var right = [];
 
-    for (i=0; i < arr.length-1; i++){
-        if (arr[i] < pI){
+    for (let i=0; i < arr.length-1; i++){
+        if (arr[i] < pivot){
             left.push(arr[i]);
-        } 
-        else {
+        } else {
             right.push(arr[i]);
        }
     }
 
-    sortedLeft = qkSort(left);
-    sortedRight = qkSort(right);
-    return [...sortedLeft, pI, ...sortedRight];
+    const sortedLeft = qkSort(left);
+    const sortedRight = qkSort(right);
+    return sortedLeft.concat(pivot, sortedRight);
     
     
 }
 
 
-arr = [1,4,5,6,2,3];
+arr = [5,8,1,7,2,0];
 
 console.log(qkSort(arr));
