@@ -26,7 +26,7 @@ function mergeSort(arr){
 }
 
 
-const arr = [9, 3, 5, 1, 4, 8, 0]
+const arr = [9, 3, -5, 1, 4, 8]
 console.log(mergeSort(arr))
 
 
